@@ -18,7 +18,7 @@ const Index = () => {
   const data = useLoaderData();
   return (
     <div>
-      <pre>{JSON.stringify(data, 0, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, 0, 2)}</pre> */}
       <Form method='post'>
         <button type='submit'>INCREMENT</button>
       </Form>
