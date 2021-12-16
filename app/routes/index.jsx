@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, redirect, useLoaderData } from 'remix';
 
 export const loader = async () => {
-  const response = await fetch('https://worker.lms-oto.workers.dev/');
+  const response = await fetch('https://worker.lms-oto.workers.dev');
   const result = await response.json();
   return result;
 };
