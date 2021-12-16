@@ -1,11 +1,14 @@
 import React from 'react';
 import { Form, redirect, useLoaderData } from 'remix';
 
-// export const loader = async () => {
-//   const response = await fetch('https://sample-json.lms-oto.workers.dev');
-//   const result = await response.json();
-//   return result;
-// };
+export const loader = async () => {
+  // const response = await fetch('https://sample-json.lms-oto.workers.dev');
+  // const result = await response.json();
+  // return result;
+  return {
+    count:0
+  }
+};
 
 export async function action() {
   fetch('https://worker.lms-oto.workers.dev/increment', {
@@ -15,9 +18,9 @@ export async function action() {
 }
 
 const Index = () => (
-  // const data = useLoaderData();
+  const data = useLoaderData();
   <div>
-    {/* <pre>{JSON.stringify(data, 0, 2)}</pre> */}
+    <pre>{JSON.stringify(data, 0, 2)}</pre>
     <Form method='post'>
       <button type='submit'>INCREMENT</button>
     </Form>
