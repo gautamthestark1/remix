@@ -4,7 +4,7 @@ import { useLoaderData } from 'remix';
 export const loader = async () => {
   let errResponse;
   try {
-    const response = await fetch('https://sample-json.lms-oto.workers.dev/');
+    const response = await fetch('https://sample-json.lms-oto.workers.dev');
     errResponse = response;
     const result = await response.json();
     return result;
