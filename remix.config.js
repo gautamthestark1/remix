@@ -1,9 +1,12 @@
+/**
+ * @type {import('@remix-run/dev/config').AppConfig}
+ */
 module.exports = {
   appDirectory: 'app',
   browserBuildDirectory: 'public/build',
   publicPath: '/build/',
   serverBuildDirectory: 'build',
-  devServerPort: 8002,
+  devServerBroadcastDelay: 1000,
   mdx: async () => {
     const [syntaxHighlighter] = await Promise.all([
       import('@kentcdodds/md-temp').then(
