@@ -1,27 +1,21 @@
 import React from 'react';
-import { Form, redirect, useLoaderData } from 'remix';
+import { useLoaderData } from 'remix';
 
 export const loader = async () => {
-  const response = await fetch('https://sample-json.lms-oto.workers.dev');
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch('https://sample-json.lms-oto.workers.dev/');
+    const result = await response.json();
+    return result;
+  } catch (err) {
+    return { error: err };
+  }
 };
-
-// export async function action() {
-//   fetch('https://worker.lms-oto.workers.dev/increment', {
-//     method: 'post'
-//   });
-//   return redirect('/');
-// }
 
 const Index = () => {
   const data = useLoaderData();
   return (
     <div>
-      <div>{data?.printWidth}</div>
-      {/* <Form method='post'>
-        <button type='submit'>INCREMENT</button>
-      </Form> */}
+      <pre>{JSON.stringify(data, 0, 2)}</pre>
     </div>
   );
 };
