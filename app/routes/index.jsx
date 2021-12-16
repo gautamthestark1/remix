@@ -7,21 +7,21 @@ export const loader = async () => {
   return result;
 };
 
-export async function action() {
-  fetch('https://worker.lms-oto.workers.dev/increment', {
-    method: 'post'
-  });
-  return redirect('/');
-}
+// export async function action() {
+//   fetch('https://worker.lms-oto.workers.dev/increment', {
+//     method: 'post'
+//   });
+//   return redirect('/');
+// }
 
 const Index = () => {
   const data = useLoaderData();
   return (
     <div>
       <div>{data?.printWidth}</div>
-      <Form method='post'>
+      {/* <Form method='post'>
         <button type='submit'>INCREMENT</button>
-      </Form>
+      </Form> */}
     </div>
   );
 };
