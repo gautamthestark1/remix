@@ -2,12 +2,14 @@ import React from 'react';
 import { useLoaderData } from 'remix';
 
 export const loader = async () => {
+  let errResponse;
   try {
     const response = await fetch('https://sample-json.lms-oto.workers.dev/');
+    errResponse = response;
     const result = await response.json();
     return result;
   } catch (err) {
-    return { error: err };
+    return { error: errResponse };
   }
 };
 
