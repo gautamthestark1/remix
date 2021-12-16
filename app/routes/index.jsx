@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form, redirect, useLoaderData } from 'remix';
 
-export const loader = async () => {
-  const response = await fetch('https://worker.lms-oto.workers.dev');
-  const result = await response.json();
-  return result;
-};
+// export const loader = async () => {
+//   const response = await fetch('https://sample-json.lms-oto.workers.dev');
+//   const result = await response.json();
+//   return result;
+// };
 
 export async function action() {
   fetch('https://worker.lms-oto.workers.dev/increment', {
@@ -14,18 +14,15 @@ export async function action() {
   return redirect('/');
 }
 
-const Index = () => {
-  const data = useLoaderData();
-  return (
-    <div>
-      {/* <pre>{JSON.stringify(data, 0, 2)}</pre> */}
-      <Form method='post'>
-        <button type='submit'>INCREMENT</button>
-      </Form>
-    </div>
-  );
-};
-
+const Index = () => (
+  // const data = useLoaderData();
+  <div>
+    {/* <pre>{JSON.stringify(data, 0, 2)}</pre> */}
+    <Form method='post'>
+      <button type='submit'>INCREMENT</button>
+    </Form>
+  </div>
+);
 Index.propTypes = {};
 
 export default Index;
