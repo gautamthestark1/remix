@@ -1,0 +1,85 @@
+### ESLint + Prettier
+
+- Install ESLint with Airbnb config -
+
+  ```
+  npx install-peerdeps -D eslint-config-airbnb
+  ```
+
+- Install Prettier with ESLint config -
+
+  ```
+  npm install -D prettier eslint-config-prettier
+  ```
+
+- Create a new file at root of project named '.eslintrc.js' with following
+  contents -
+
+  ```js
+  module.exports = {
+    extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks', 'prettier']
+  };
+  ```
+
+  This will be our ESLint configuration file.
+
+- Create a new file atroot of project named '.prettierrc' with following
+  contents -
+
+  ```json
+  {
+    "endOfLine": "lf",
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "printWidth": 80,
+    "semi": true,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "none",
+    "proseWrap": "always"
+  }
+  ```
+
+  This will be our Prettier configuration file.
+
+- In case we use **_import aliases_** for absolute imports, install
+  **_eslint-import-resolver-alias_** -
+
+  ```
+  npm install -D eslint-import-resolver-alias
+  ```
+
+  Set up aliases like below -
+
+  ```js
+  module.exports = {
+    extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [['~', './app']],
+          extensions: ['.js', '.jsx']
+        }
+      }
+    }
+  };
+  ```
+
+- You can also turn off certain rules like below -
+
+  ```js
+  module.exports = {
+    extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      'import/extensions': 'off',
+      'react/function-component-definition': 'off'
+    },
+    settings: {
+  ```
+
+  Each rule can have one of the 3 values - 'error', 'warn' or 'off'. Use warn to
+  turn any rule into a warning instead of error.
+
+  Try to work with rules enabled most of the time. Only use this as the last
+  resort.

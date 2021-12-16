@@ -1,0 +1,40 @@
+### Nested Routes with Nested Layouts
+
+The whole examples module is actually using this feature.
+
+<img alt='Folder structure' src='/images/examples/nested-routes/folder-structure.png' className='mb-4' />
+<br />
+examples.jsx - This is the main component which renders other nested components based on url.
+
+```js
+const Examples = () => (
+  <div className='bg-primary-base'>
+    <header className='h-24' />
+    <div className='flex container w-full mx-auto bg-white'>
+      <div className='w-72 min-h-screen p-4 border-r border-r-primary-base flex-shrink-0'>
+        <Link to='/examples'>
+          <div className='text-2xl font-bold'>Examples</div>
+        </Link>
+        <ul className='mt-4 list-disc list-outside space-y-2 pl-4'>
+          <li>
+            <Link to='ui-components'>UI Components</Link>
+          </li>
+          <li>
+            <Link to='nested-routes-with-nested-layouts'>Nested Routes with Nested Layouts</Link>
+          </li>
+        </ul>
+      </div>
+      <div className='p-4'>
+        <Outlet />
+      </div>
+    </div>
+  </div>
+);
+```
+
+Each component inside the 'examples' folder gets rendered in place of Outlet component based on active route.
+For example,
+
+- '/examples/ui-components' renders UIComponents in place of Outlet.
+- '/examples' renders Index in place of Outlet.
+- '/examples/nested-routes-with-nested-layouts' renders NestedRoutes in place of Outlet.
