@@ -3,9 +3,7 @@ import { Form, useActionData, useLoaderData } from 'remix';
 
 export const loader = async () => {
   try {
-    const response = await fetch('https://worker.lms-oto.workers.dev', {
-      method: 'GET'
-    });
+    const response = await fetch('https://worker.lms-oto.workers.dev');
     // const result = await response.json();
     return response;
   } catch (e) {
