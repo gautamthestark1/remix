@@ -6,8 +6,8 @@ export const loader = async () => {
     const response = await fetch('https://worker.lms-oto.workers.dev', {
       method: 'GET'
     });
-    const result = await response.json();
-    return result;
+    // const result = await response.json();
+    return response;
   } catch (e) {
     return { catchError: e };
   }
