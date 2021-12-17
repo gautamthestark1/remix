@@ -9,7 +9,7 @@ export const loader = async () => {
     const result = await response.json();
     return result;
   } catch (e) {
-    return e;
+    return { catchError: e };
   }
 };
 
