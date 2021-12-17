@@ -1,4 +1,12 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from 'remix';
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useCatch
+} from 'remix';
 import PropTypes from 'prop-types';
 
 import tailwindStylesUrl from '~/styles/tailwind.css';
@@ -19,16 +27,16 @@ const App = () => (
 );
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary
-export const ErrorBoundary = ({ error }) => (
-  <Document title='Error!'>
-    <div>
-      <h1>There was an error</h1>
-      <p>{error.message}</p>
-      <hr />
-      <p>Hey, developer, you should replace this with what you want your users to see.</p>
-    </div>
-  </Document>
-);
+// export const ErrorBoundary = ({ error }) => (
+//   <Document title='Error!'>
+//     <div>
+//       <h1>There was an error</h1>
+//       <p>{error.message}</p>
+//       <hr />
+//       <p>Hey, developer, you should replace this with what you want your users to see.</p>
+//     </div>
+//   </Document>
+// );
 
 // https://remix.run/docs/en/v1/api/conventions#catchboundary
 export const CatchBoundary = () => {
@@ -57,7 +65,10 @@ const Document = ({ children, title }) => (
 export default App;
 
 Document.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
   title: PropTypes.string
 };
 
@@ -65,6 +76,6 @@ Document.defaultProps = {
   title: ''
 };
 
-ErrorBoundary.propTypes = {
-  error: PropTypes.instanceOf(Error).isRequired
-};
+// ErrorBoundary.propTypes = {
+//   error: PropTypes.instanceOf(Error).isRequired
+// };
