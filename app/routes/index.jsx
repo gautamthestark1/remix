@@ -17,7 +17,7 @@ export async function action() {
 }
 
 const Index = () => {
-  const loaderData = useLoaderData();
+  // const loaderData = useLoaderData();
   return (
     <div>
       {/* <pre>{JSON.stringify(loaderData, 0, 2)}</pre> */}
