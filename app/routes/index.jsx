@@ -2,11 +2,15 @@ import React from 'react';
 import { Form, useActionData, useLoaderData } from 'remix';
 
 export const loader = async () => {
-  const response = await fetch('https://worker.lms-oto.workers.dev', {
-    method: 'GET'
-  });
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch('https://worker.lms-oto.workers.dev', {
+      method: 'GET'
+    });
+    const result = await response.json();
+    return result;
+  } catch (e) {
+    return e;
+  }
 };
 
 export async function action() {
